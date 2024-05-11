@@ -1,5 +1,7 @@
 from django.contrib import admin
-from CatalogApp.models import Products
-admin.site.register(Products)
+from CatalogApp.models import Products, Categories, Countries
 
-# Register your models here.
+admin.site.register(Products)
+admin.site.register(Categories)
+admin.site.register(Countries)
+

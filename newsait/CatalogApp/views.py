@@ -9,14 +9,12 @@ from .serializers import ProductsSerializer
 @csrf_exempt
 def ProductApi(request, id = None):
     if request.method == 'GET':
-        if id!=None:
+        if id is not None:
             product = Products.objects.get(product_id=id)
             products_serializer = ProductsSerializer(product, many=False)
-            return JsonResponse(products_serializer.data, safe=False)
+            return render(request, 'CatalogApp/main.html', {'products_serializer':[products_serializer.data]})
         else:
-            products = Products.objects.all()
-            products_serializer = ProductsSerializer(products,many=True)
-            return JsonResponse(products_serializer.data,safe=False)
+            return JsonResponse("404",safe=False)
     elif request.method == 'POST':
         product_data = JSONParser().parse(request)
         products_serializer=ProductsSerializer(data=product_data)

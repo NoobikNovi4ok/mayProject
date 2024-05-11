@@ -1,13 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}
+    {% for product in products_serializer %}
+        {{ product.name }}
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    {% for product in products_serializer %}
+        <div class="row">
+            <div class="col">
+                <div class="image_fruit">
+
+                </div>
+            </div>
+            <div class="col">
+                <p>{{ product.name }}</p>
+                <div class="row">
+                    <div class="col">
+                        <p>{{ product.cost }}</p>
+                        <p>за 1 кг</p>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="btn btn-secondary" style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>{{ product.cost }}</p>
+    {% endfor %}
+{% endblock %}
