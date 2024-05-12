@@ -7,10 +7,10 @@ from .models import Products
 from .serializers import ProductsSerializer
 
 @csrf_exempt
-def ProductApi(request, id = None):
+def ProductApi(request, slug = None):
     if request.method == 'GET':
-        if id is not None:
-            product = Products.objects.get(product_id=id)
+        if slug is not None:
+            product = Products.objects.get(slug=slug)
             products_serializer = ProductsSerializer(product, many=False)
             return render(request, 'CatalogApp/main.html', {'products_serializer':[products_serializer.data]})
         else:

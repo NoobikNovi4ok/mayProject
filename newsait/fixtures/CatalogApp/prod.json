@@ -1,0 +1,18 @@
+[
+  {
+    "model": "CatalogApp.products",
+    "pk": 1,
+    "fields": {
+      "name": "Дуриан",
+      "slug": "durian",
+      "photo": "products_images/photo_2023-02-13_14-57-35_B8KGwqH.jpg",
+      "description": "Вкуснейший",
+      "quantity": 10,
+      "cost": "150.00",
+      "nutritional_value": "200.00",
+      "manufactures": "РыбЗавод",
+      "country": 1,
+      "category": 1
+    }
+  }
+]

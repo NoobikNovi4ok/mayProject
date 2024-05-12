@@ -1,0 +1,29 @@
+[
+  {
+    "model": "CatalogApp.categories",
+    "pk": 1,
+    "fields": {
+      "name": "Новинки",
+      "slug": "novinki",
+      "icon": "icon_category/new_10445244_1_WctWeoA.png"
+    }
+  },
+  {
+    "model": "CatalogApp.categories",
+    "pk": 2,
+    "fields": {
+      "name": "Рекомендуем",
+      "slug": "rekomenduem",
+      "icon": "icon_category/free-icon-like-126473_1_mBDCOgj.png"
+    }
+  },
+  {
+    "model": "CatalogApp.categories",
+    "pk": 3,
+    "fields": {
+      "name": "Для всей семьи",
+      "slug": "dlya-vsej-semi",
+      "icon": "icon_category/grandparents_6287336_1_oyEEnNx.png"
+    }
+  }
+]

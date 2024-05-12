@@ -1,0 +1,26 @@
+[
+  {
+    "model": "CatalogApp.countries",
+    "pk": 1,
+    "fields": {
+      "name": "Китай",
+      "slug": "kitaj"
+    }
+  },
+  {
+    "model": "CatalogApp.countries",
+    "pk": 2,
+    "fields": {
+      "name": "Индия",
+      "slug": "indiya"
+    }
+  },
+  {
+    "model": "CatalogApp.countries",
+    "pk": 3,
+    "fields": {
+      "name": "Шри-Ланка",
+      "slug": "shri-lanka"
+    }
+  }
+]
