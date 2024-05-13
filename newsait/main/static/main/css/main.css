@@ -11,6 +11,11 @@ body {
   padding-bottom: 2%;
 }
 
+.kart_tovar{
+    border-radius:20px;
+    border:solid 1px;
+    padding:20px;
+}
 @media(max-width:575px){
     .new_modal_about{
         margin-bottom:5%;
@@ -22,6 +27,9 @@ body {
     .cardio{
         justify-content:space-around;
     }
+    .about_product{
+        text-align:center;
+    }
 
 }
 @media(min-width:576px){
@@ -32,6 +40,7 @@ body {
         justify-content: space-between;
         padding:0;
     }
+
 
 }
 .sectiya{

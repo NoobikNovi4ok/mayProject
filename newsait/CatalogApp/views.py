@@ -3,16 +3,23 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from .models import Products
+from .models import Products, Countries
 from .serializers import ProductsSerializer
 
 @csrf_exempt
 def ProductApi(request, slug = None):
     if request.method == 'GET':
         if slug is not None:
+            country_id = Countries.objects.all()
             product = Products.objects.get(slug=slug)
+            country_name = product.country.name
             products_serializer = ProductsSerializer(product, many=False)
-            return render(request, 'CatalogApp/main.html', {'products_serializer':[products_serializer.data]})
+            context = {
+                'products_serializer': [products_serializer.data],
+                'country_name':country_name,
+            }
+            #return render(request, 'CatalogApp/main.html', {'products_serializer':[products_serializer.data]})
+            return render(request, 'CatalogApp/main.html', context)
         else:
             return JsonResponse("404",safe=False)
     elif request.method == 'POST':
