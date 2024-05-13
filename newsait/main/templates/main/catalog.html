@@ -2,29 +2,45 @@
 {% load static %}
 
 {% block title %}
-    Каталог
+Каталог
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                Категории
-            </div>
-                <div class="col-sm-6 col-md-8 col-lg-8 d-flex flex-wrap align-items-center cardio">
-                    {% for product in products %}
-                    <div class="card align-items-center text-center">
-                        <div class="card-body">
-                            <img class="card-img" src="{{product.photo.url}}" alt="Card image cap" style="width:45%;height:40%;" >
-                            <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.country}} 1 кг</p>
-                            <p class="card-text">{{product.cost}} Р</p>
-                            <a href="product/{{product.slug}}" class="btn btn-primary" style="border:solid 1px;background: rgba(143, 255, 0, 0.5);color:#000;">В корзину</a>
-                            <a href="#" class="btn btn-secondary" style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
-                        </div>
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <form>
+                        {% for category in category %}
+                        <label><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label>
+                        {% endfor %}
+
+            <input type="submit" value="Показать">
+            </form>
                     </div>
-                    {% endfor %}
             </div>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-8 d-flex flex-wrap align-items-center cardio">
+            {% for product in products %}
+            <div class="card align-items-center text-center">
+                <div class="card-body">
+                    <img class="card-img" src="{{product.photo.url}}" alt="Card image cap"
+                         style="width:45%;height:40%;">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{product.country}} 1 кг</p>
+                    <p class="card-text">{{product.cost}} Р</p>
+                    <a href="product/{{product.slug}}" class="btn btn-primary"
+                       style="border:solid 1px;background: rgba(143, 255, 0, 0.5);color:#000;">В корзину</a>
+                    <a href="#" class="btn btn-secondary"
+                       style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
+                </div>
             </div>
+            {% endfor %}
+        </div>
     </div>
+</div>
 {% endblock %}
