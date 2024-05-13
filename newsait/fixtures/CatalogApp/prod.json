@@ -14,5 +14,133 @@
       "country": 1,
       "category": 1
     }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 2,
+    "fields": {
+      "name": "Питахайя",
+      "slug": "pitahajya",
+      "photo": "products_images/pngwing_1.png",
+      "description": "Тончайшие нотки моря",
+      "quantity": 10,
+      "cost": "350.00",
+      "nutritional_value": "350.00",
+      "manufactures": "НацЗавод",
+      "country": 2,
+      "category": 3
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 3,
+    "fields": {
+      "name": "Мангостин",
+      "slug": "mangostin",
+      "photo": "products_images/2c7f293c9dad12d16fd5ae613ed38d1f.png",
+      "description": "Тончайшие нотки песка",
+      "quantity": 20,
+      "cost": "500.00",
+      "nutritional_value": "100.00",
+      "manufactures": "ФруктНац",
+      "country": 3,
+      "category": 3
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 4,
+    "fields": {
+      "name": "Манго",
+      "slug": "mango",
+      "photo": "products_images/15982.png",
+      "description": "Тончайший",
+      "quantity": 20,
+      "cost": "650.00",
+      "nutritional_value": "200.00",
+      "manufactures": "ФруктНац",
+      "country": 1,
+      "category": 1
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 5,
+    "fields": {
+      "name": "Личи",
+      "slug": "lichi",
+      "photo": "products_images/1562676508_lichi-na-prozrachnom-fone-gooewe.png",
+      "description": "Непонятный",
+      "quantity": 100,
+      "cost": "999.00",
+      "nutritional_value": "150.00",
+      "manufactures": "РыбЗавод",
+      "country": 1,
+      "category": 2
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 6,
+    "fields": {
+      "name": "Джекфрут",
+      "slug": "dzhekfrut",
+      "photo": "products_images/Jackfruit-PNG-HD.png",
+      "description": "Пример",
+      "quantity": 20,
+      "cost": "750.00",
+      "nutritional_value": "300.00",
+      "manufactures": "НацЗавод",
+      "country": 2,
+      "category": 3
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 7,
+    "fields": {
+      "name": "Карамбола",
+      "slug": "karambola",
+      "photo": "products_images/13448539.png",
+      "description": "Как из Stardew Valley",
+      "quantity": 10,
+      "cost": "999.00",
+      "nutritional_value": "100.00",
+      "manufactures": "РыбЗавод",
+      "country": 3,
+      "category": 3
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 8,
+    "fields": {
+      "name": "Папайя",
+      "slug": "papajya",
+      "photo": "products_images/Papaya-Fruit-PNG-HD-Image.png",
+      "description": "Домашний вкус",
+      "quantity": 200,
+      "cost": "850.00",
+      "nutritional_value": "300.00",
+      "manufactures": "ФруктНац",
+      "country": 2,
+      "category": 2
+    }
+  },
+  {
+    "model": "CatalogApp.products",
+    "pk": 9,
+    "fields": {
+      "name": "Нони",
+      "slug": "noni",
+      "photo": "products_images/image-12-_2_-_1_.png",
+      "description": "Известный",
+      "quantity": 150,
+      "cost": "750.00",
+      "nutritional_value": "150.00",
+      "manufactures": "ФруктНац",
+      "country": 1,
+      "category": 3
+    }
   }
 ]
