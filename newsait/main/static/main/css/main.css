@@ -30,17 +30,26 @@ body {
     .about_product{
         text-align:center;
     }
-
+    .card-img{
+        width:140px;
+        height:140px;
+    }
 }
 @media(min-width:576px){
     .contact_modal_without{
         height:400px;
     }
     .cardio{
-        justify-content: space-between;
+    justify-content: space-around;
         padding:0;
     }
-
+    .col-md-5{
+        width:45%;
+        }
+    .card-img{
+        width:180px;
+        height:180px;
+    }
 
 }
 .sectiya{
@@ -49,18 +58,16 @@ body {
 .contact_modal{
     margin-bottom:4%;
 }
-@media(min-width:576px){
-    .col-md-5{
-        width:45%;
-        }
-    }
+
 .card {
   border-radius:30px;
   width: 18rem;
   border: solid 1px;
   transition: all 2s ease-in;
   flex-direction:row;
+  margin-bottom:20px;
 }
+
 .card > :hover {
    border-radius:30px;
    cursor:pointer;

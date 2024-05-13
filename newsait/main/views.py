@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from CatalogApp.models import Products, Categories, Countries
+from django.core.paginator import Paginator
 def index(request):
     return render(request, 'main/index.html')
 
@@ -11,17 +12,20 @@ def catalog(request):
     else:
         products = Products.objects.all()
 
+    paginator = Paginator(products, 6)
+    current_page = paginator.page(1)
+
     if category_id:
         category_id = [int(item) for item in category_id]
         context = {
             'category': categories,
-            'products': products,
+            'products': current_page,
             'select': category_id,
         }
     else:
         context = {
             'category': categories,
-            'products': products
+            'products': current_page,
         }
 
     return render(request, 'main/catalog.html', context)
