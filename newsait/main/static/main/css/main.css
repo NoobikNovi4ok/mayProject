@@ -82,6 +82,12 @@ body {
     min-height:64px;
 }
 
+.orange {
+    border:solid 1px;
+    color:#000;
+    transition: all 0.1s ease-in-out;
+}
+
 .model_items {
   width: 70%;
   height: 50%;
@@ -118,14 +124,23 @@ body {
 
 @media (hover:hover){
     .model_item input:hover {
-    transform:scale(1.04)
+        transform:scale(1.04)
+    }
+    .orange:hover {
+        border:solid 1px;
+        transform:scale(1.02);
     }
 }
 
 @media (hover:none){
     .model_item input:active{
-    transform:scale(1.04)}
+        transform:scale(1.04)
+    }
+    .orange:active {
+        transform:scale(1.02);
+    }
 }
+
 
 .model_item h3 {
   font-size: calc(16px + 4 * (100vw - 320px) / 880);

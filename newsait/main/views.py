@@ -36,3 +36,10 @@ def about(request):
 def contact(request):
     return render(request, 'main/contact.html')
 
+def my_404_view(request, exception):
+    context = {
+        'title': 'Страница не найдена: 404',
+        'error_message': 'К сожалению такая страница была не найдена, или перемещена',
+    }
+
+    return render(request, 'main/404.html', context)

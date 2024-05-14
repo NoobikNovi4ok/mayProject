@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = 'main.views.my_404_view'
+
 urlpatterns = [
     path('product/', include('CatalogApp.urls')),
     path('admin/', admin.site.urls),

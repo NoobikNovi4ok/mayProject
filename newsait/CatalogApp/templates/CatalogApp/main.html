@@ -10,45 +10,43 @@
 {% block content %}
     {% for product in products_serializer %}
 <div class="container">
-        <div class="row d-flex justify-content-between align-items-center">
-            <div class="col-sm-5 col-md-5 col-lg-5 text-center">
-                <div class="container" style="width:100%;">
-                    <div class="image_fruit text-center">
-                        <img src="{{ product.photo }}" style="width:75%;height:95%;">
-                    </div>
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-sm-5 col-md-5 col-lg-5 text-center">
+            <div class="container" style="width:100%;">
+                <div class="image_fruit text-center">
+                    <img src="{{ product.photo }}" style="width:75%;height:95%;">
                 </div>
             </div>
-            <div class="col-sm-5 col-md-6 col-lg-6 ">
-                <h2>{{ product.name }}</h2>
-                <div class="row justify-content-between align-items-center my-2">
+        </div>
+        <div class="col-sm-5 col-md-6 col-lg-6 ">
+            <h2>{{ product.name }}</h2>
+            <div class="row justify-content-between align-items-center my-2">
 
-                </div>
-                <div class="kart_tovar mb-2">
+            </div>
+            <div class="kart_tovar mb-2">
                 <h3><b>Описание товара</b></h3>
                 <p style="margin-bottom:0;">{{product.description}}</p>
-                </div>
-                <div class="kart_tovar">
-                    <h3 class="mb-2"><b>Основные характеристики</b></h3>
+            </div>
+            <div class="kart_tovar">
+                <h3 class="mb-2"><b>Основные характеристики</b></h3>
                 <h3>Страна производителя</h3>
                 <p>{{country_name}}</p>
                 <h3>Производитель</h3>
                 <p>{{product.manufactures}}</p>
                 <h3>Калорийность</h3>
                 <p>{{product.nutritional_value}} ккал / 100гр</p>
-                    <h3>Количество товара на складе</h3>
-                    <p style="margin-bottom:0;">{{product.quantity}}</p>
+                <h3>Количество товара на складе</h3>
+                <p style="margin-bottom:0;">{{product.quantity}}</p>
             </div>
         </div>
-            <div class="row justify-content-between">
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                    <h3>{{product.cost}}</h3>
-                    <p>Цена за 1кг</p>
-                    <div class="col-sm-5 col-md-5 col-lg-5">
-                        <a href="#" class="btn btn-secondary" style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Добавить в корзину</a>
-                    </div>
-                </div>
-                <div>
-                </div>
+        <div class="row justify-content-between">
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <h3 style="margin-bottom:0;">{{product.cost}} ₽</h3>
+                <p>Цена за 1кг</p>
+                <a href="#" class="orange btn" style="background-color: rgba(255, 138, 0,0.5);">Добавить в корзину</a>
+            </div>
+        </div>
+    </div>
 </div>
     {% endfor %}
 {% endblock %}
