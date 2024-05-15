@@ -7,13 +7,14 @@ def index(request):
 def catalog(request):
     categories = Categories.objects.all()
     category_id = request.GET.getlist('category', 0)
+    page = request.GET.get('page', 1)
     if category_id:
         products = Products.objects.filter(category__in=category_id)
     else:
         products = Products.objects.all()
 
-    paginator = Paginator(products, 6)
-    current_page = paginator.page(1)
+    paginator = Paginator(products, 2)
+    current_page = paginator.page(page)
 
     if category_id:
         category_id = [int(item) for item in category_id]

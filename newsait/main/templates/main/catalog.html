@@ -10,7 +10,8 @@
     <div class="row justify-content-between">
         <div class="col-sm-4 col-md-4 col-lg-4">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -19,9 +20,9 @@
                         <label><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label>
                         {% endfor %}
 
-            <input type="submit" value="Показать">
-            </form>
-                    </div>
+                        <input type="submit" value="Показать">
+                    </form>
+                </div>
             </div>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-8 d-flex flex-wrap align-items-center cardio">
@@ -41,5 +42,24 @@
             {% endfor %}
         </div>
     </div>
+    {% if products.paginator.count > 1 %}
+        <nav aria-label="Навигация" class="mx-4 text-center align-items-center">
+            <ul class="pagination justify-content-center" style="margin-bottom:0;margin-top:10px;">
+                <li class="page-item">
+                    <a class="page-link" href="?page=1{% for cid in select %}&category={{ cid }}{% endfor %}" aria-label="Первая">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for page in products.paginator.page_range %}
+                            <li class="page-item"><a class="page-link" href="?page={{page}}{% for cid in select %}&category={{ cid }}{% endfor %}">{{ page }}</a></li>
+                {% endfor %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ products.paginator.num_pages }}{% for cid in select %}&category={{ cid }}{% endfor %}" aria-label="Последняя">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
 </div>
 {% endblock %}

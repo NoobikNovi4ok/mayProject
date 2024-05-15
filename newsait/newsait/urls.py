@@ -24,7 +24,8 @@ handler404 = 'main.views.my_404_view'
 urlpatterns = [
     path('product/', include('CatalogApp.urls')),
     path('admin/', admin.site.urls),
-    path('', include('main.urls'))
+    path('', include('main.urls')),
+    path('user/', include('users.urls', namespace='user'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
