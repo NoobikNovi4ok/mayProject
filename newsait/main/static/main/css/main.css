@@ -20,7 +20,6 @@ body {
     .new_modal_about{
         margin-bottom:5%;
     }
-
     .sectiya{
         margin-top:5%;
     }
@@ -33,6 +32,10 @@ body {
     .card-img{
         width:140px;
         height:140px;
+    }
+    hr {
+        margin-top:25px;
+        margin-bottom:25px;
     }
 }
 @media(min-width:576px){
@@ -49,6 +52,10 @@ body {
     .card-img{
         width:180px;
         height:180px;
+    }
+        hr {
+        margin-top:2%;
+        margin-bottom:2%;
     }
 
 }
@@ -151,7 +158,6 @@ body {
   opacity: 0.6;
 }
 hr {
-  margin-top: 2%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 1);
 }
 
@@ -187,7 +193,7 @@ hr {
   font-size: calc(16px + 5 * (100vw - 320px) / 880);
 }
 .container p {
-  font-size: calc(12px + 5 * (100vw - 320px) / 880);
+  font-size: calc(16px + 3 * (100vw - 480px) / 1024);
 }
 
 .model_item_po4ta {
