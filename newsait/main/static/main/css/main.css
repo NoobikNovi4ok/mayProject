@@ -103,6 +103,9 @@ hr {
         width:64px;
         height:64px;
     }
+    .social-icons-footer{
+        width:40%;
+    }
 }
 @media(min-width:576px){
     .contact_modal{
@@ -141,6 +144,9 @@ hr {
     .green_heart{
         width:15%;
         height:15%;
+    }
+    .social-icons-footer{
+        width:75%;
     }
 
 }
@@ -220,6 +226,12 @@ hr {
   justify-content: space-between;
   width: 40%;
   height: 50%;
+}
+
+.social-icons-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 @media (max-width: 450px) {
