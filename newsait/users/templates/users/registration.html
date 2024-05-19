@@ -6,34 +6,41 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <div class="col-sm-6 col-md-6 col-lg-5 mx-auto">
-  <form class="text-center align-items-center" style="border-radius:20px;border:solid 1px;padding:20px;">
-    <img class="mb-2" src="" alt="" width="72" height="57">
+    <div class="col-sm-6 col-md-6 col-lg-5 mx-auto" >
+  <form class="text-center align-items-center" style="border-radius:20px;border:solid 1px;padding:20px;" action="{% url 'user:registration' %}" method="post">
+    {% csrf_token %}
+    <svg width="64px" height="64px" viewBox="0 0 100 100" class="looka-1j8o68f mb-2" id="image_footer">
+                    <defs id="SvgjsDefs4396">
+                        <linearGradient id="SvgjsLinearGradient4401">
+                            <stop id="SvgjsStop4402" stop-color="#ef4136" offset="0"></stop>
+                            <stop id="SvgjsStop4403" stop-color="#fbb040" offset="1"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g id="SvgjsG4397" featurekey="symbolFeature-0"
+                       transform="matrix(1.1096069569186666,0,0,1.1096069569186666,-5.758862815409239,-5.228467862481947)"
+                       fill="url(#SvgjsLinearGradient4401)">
+                        <path xmlns="http://www.w3.org/2000/svg"
+                              d="M85.324,52.012H57.902c-0.868,0-1.303,1.049-0.689,1.663l19.47,19.47c0.403,0.403,1.074,0.382,1.439-0.055  c4.876-5.84,7.605-12.865,8.181-20.034C86.347,52.493,85.89,52.012,85.324,52.012z M54.457,56.432  c-0.614-0.614-1.663-0.179-1.663,0.689v27.732c0,0.569,0.487,1.028,1.054,0.977c7.203-0.649,14.247-3.468,20.066-8.466  c0.428-0.368,0.444-1.031,0.045-1.43L54.457,56.432z M43.788,52.012l-27.882,0c-0.566,0-1.023,0.481-0.978,1.044  c0.583,7.274,3.381,14.403,8.393,20.293c0.367,0.431,1.033,0.449,1.433,0.048l19.723-19.723  C45.091,53.062,44.656,52.012,43.788,52.012z M47.233,56.432L27.522,76.143c-0.402,0.402-0.383,1.07,0.052,1.436  c5.898,4.969,13.02,7.73,20.281,8.287c0.563,0.043,1.041-0.414,1.041-0.978V57.121C48.896,56.253,47.847,55.818,47.233,56.432z   M15.911,47.942h27.422c0.868,0,1.303-1.049,0.689-1.663l-19.47-19.47c-0.403-0.403-1.074-0.382-1.439,0.055  c-4.876,5.84-7.605,12.865-8.181,20.034C14.888,47.461,15.346,47.942,15.911,47.942z M46.778,43.523  c0.614,0.614,1.663,0.179,1.663-0.689V15.102c0-0.569-0.487-1.028-1.054-0.977c-7.203,0.649-14.247,3.468-20.066,8.466  c-0.428,0.368-0.444,1.031-0.045,1.43L46.778,43.523z M57.447,47.942l27.882,0c0.566,0,1.023-0.481,0.978-1.044  c-0.583-7.274-3.381-14.403-8.393-20.293c-0.367-0.431-1.033-0.449-1.433-0.048L56.758,46.279  C56.145,46.893,56.579,47.942,57.447,47.942z M54.003,43.523l19.711-19.711c0.402-0.402,0.382-1.07-0.052-1.436  c-5.898-4.969-13.02-7.73-20.281-8.287c-0.563-0.043-1.041,0.414-1.041,0.978v27.768C52.339,43.702,53.389,44.136,54.003,43.523z   M52.686,4.712c-25.746,0-47.496,20.635-47.496,45.061c0,24.847,20.214,45.061,45.061,45.061s45.061-20.214,45.061-45.061  C95.311,24.083,76.986,4.712,52.686,4.712z M50.25,89.962c-22.161,0-40.189-18.029-40.189-40.189  c0-21.409,19.918-40.189,42.625-40.189c21.523,0,37.754,17.278,37.754,40.189C90.439,71.933,72.41,89.962,50.25,89.962z"></path>
+                    </g>
+                </svg>
     <h1 class="h3 mb-3 fw-normal">{{title}}</h1>
       <div class="form-floating">
-      <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Никнейм</label>
+      <input type="text" class="form-control mb-2" id="nickname" name="nickname" placeholder="Nickname" autocomplete="username">
+      <label for="nickname">Никнейм</label>
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email</label>
+      <input type="email" class="form-control mb-2" id="email" name="email" placeholder="name@example.com" autocomplete="example@gmail.com">
+      <label for="email">Email</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Пароль</label>
+      <input type="password" class="form-control mb-2" id="password1" name="password1" autocomplete="new-password" placeholder="Password">
+      <label for="password1">Пароль</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Подтверждение пароля</label>
+      <input type="password" class="form-control mb-2" id="password2" name="password2" autocomplete="new-password" placeholder="Password">
+      <label for="password2">Подтверждение пароля</label>
     </div>
-
-<!--    <div class="form-check text-start my-3">-->
-<!--      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">-->
-<!--      <label class="form-check-label" for="flexCheckDefault">-->
-<!--        Remember me-->
-<!--      </label>-->
-<!--    </div>-->
-    <button class="btn btn-primary my-2" type="submit">Sign in</button><br>
+    <button class="btn orange my-2" style="background:rgba(143, 255, 0, 0.5);" type="submit">Зарегистрироваться</button><br>
     <a href="{% url 'user:login' %}" class="link-danger" style="text-decoration:none;transition: all 1s ease-in;">Авторизоваться</a>
   </form>
         </div>

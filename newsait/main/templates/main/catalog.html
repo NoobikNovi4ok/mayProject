@@ -17,9 +17,8 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <form>
                         {% for category in category %}
-                        <label><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label>
+                        <label><img src="{{category.icon.url}}" class="icon_plus"><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label><br>
                         {% endfor %}
-
                         <input type="submit" value="Показать">
                     </form>
                 </div>

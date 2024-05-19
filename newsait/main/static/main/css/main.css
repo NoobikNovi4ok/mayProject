@@ -26,6 +26,10 @@ body {
     .card a:hover{
         transform:scale(1.04);
     }
+    .header_effect:hover{
+        opacity: 0.6;
+        transform: scale(1.04);
+    }
 
 }
 
@@ -44,6 +48,10 @@ body {
     .card a:active{
         transform:scale(1.04);
     }
+    .header_effect:active{
+        opacity: 0.6;
+        transform: scale(1.04);
+    }
 }
 
 
@@ -57,6 +65,10 @@ body {
 }
 hr {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+}
+
+.header_effect{
+    transition: all 0.1s ease-in
 }
 
 .link-danger:hover{
@@ -114,6 +126,13 @@ hr {
         width:70%;
         height:70%;
     }
+    .icon_plus{
+        width:32px;
+        height:32px;
+    }
+    .search_ul_header{
+        justify-content:center;
+    }
 }
 @media(min-width:576px){
     .contact_modal{
@@ -163,10 +182,18 @@ hr {
         width:50%;
         height:50%;
     }
+    .icon_plus{
+        width:32px;
+        height:32px;
+    }
+    .search_container_header{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .search_ul_header{
+        justify-content:end;
+    }
 
-}
-.sectiya{
-    margin-top:.5rem;
 }
 
 
@@ -675,4 +702,26 @@ hr {
 }
 #text_primer {
   font-size: calc(12px + 5 * (100vw - 1000px) / 880);
+}
+
+@media (min-width: 992px) {
+    .col-mine {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+    .col-mine-other{
+        flex: 0 0 auto;
+        width:70%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1440px) {
+  .col-mine{
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  .col-mine-other{
+    flex: 0 0 auto;
+    width:70%;
+  }
 }

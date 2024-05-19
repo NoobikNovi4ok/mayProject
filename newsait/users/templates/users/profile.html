@@ -10,46 +10,33 @@
         <!-- Контент -->
         <div class="container">
             <div class="row mt-1">
-                <div class="col-lg-2">
-                    <!-- Пустой блок на усмотрение -->
-                </div>
-                <div class="col-lg-10">
                     <!-- Контент на странице -->
                     <div class="row">
                         <div class="container mt-5">
-                            <div class="row">
+                            <div class="row justify-content-between">
                                 <!-- Профиль с данными пользователя -->
-                                <div class="col-md-5">
+                                <div class="col-md-4 col-lg-4">
                                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                                         <h3 class="text-center mb-4">Профиль пользователя</h3>
                                         <form>
                                             <div class="row">
-                                                <div class="col-md-12 mb-3 text-center">
+                                                <div class="col-md-6 col-lg-12 mb-3 text-center">
                                                     <img src="../deps/images/baseavatar.jpg"
                                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                                         style="max-width: 150px;">
                                                     <input type="file" class="form-control mt-3" id="avatar"
                                                         accept="image/*">
                                                 </div>
-                                                <div class="col-md-12 mb-3">
-                                                    <label for="firstName" class="form-label">Имя*</label>
-                                                    <input type="text" class="form-control" id="firstName"
-                                                        placeholder="Введите ваше имя" value="" required>
-                                                </div>
-                                                <div class="col-md-12 mb-3">
-                                                    <label for="lastName" class="form-label">Фамилия*</label>
-                                                    <input type="text" class="form-control" id="lastName"
-                                                        placeholder="Введите вашу фамилию" value="" required>
-                                                </div>
-                                                <div class="col-md-12 mb-3">
+
+                                                <div class="col-md-6 col-lg-12 mb-3">
                                                     <label for="username" class="form-label">Имя пользователя*</label>
                                                     <input type="text" class="form-control" id="username"
-                                                        placeholder="Введите ваше имя пользователя" value="" required>
+                                                        placeholder="Введите имя пользователя" value="" required>
                                                 </div>
-                                                <div class="col-md-12 mb-3">
+                                                <div class="col-md-6 col-lg-12 mb-3">
                                                     <label for="email" class="form-label">Email*</label>
                                                     <input type="email" class="form-control" id="email"
-                                                        placeholder="Введите ваш email *youremail@example.com" value=""
+                                                        placeholder="Введите ваш email" value=""
                                                         required>
                                                 </div>
                                             </div>
@@ -58,12 +45,12 @@
                                     </div>
                                 </div>
                                 <!-- Корзина -->
-                                <div class="col-md-7">
+                                <div class="col-md-7 col-lg-7">
                                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                                         <h3 class="text-center mb-4">Корзина</h3>
-                                        <div class="container" id="cart-items-container">
+                                        <div class="container row" id="cart-items-container">
                                             <!-- Разметка корзины -->
-                                            <div class="card mb-3 text-bg-light shadow-lg">
+                                            <div class="card mb-3 text-bg-light shadow-lg col-md-6 col-lg-9" style="width:100%">
                                                 <div class="card-header">
                                                     <h5 class="card-title">Товар</h5>
                                                 </div>
@@ -189,7 +176,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
