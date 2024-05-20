@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.urls import reverse
 from django.contrib import messages
 from users.models import User
+from django.core.mail import send_mail
 
 def login(request):
     if request.method == 'POST':
@@ -33,6 +34,14 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid() and (form.data['password1'] == form.data['password2']) and not(form.data['email'] in User.objects.all().values_list('email', flat=True)):
             form.save()
+            send_mail(
+                'Регистрация на сайте',
+                'Вы успешно зарегистрировались на сайте. Ваш логин: {}, пароль: {}'.format(form.data['username'],
+                                                                                           form.data['password1']),
+                'fruit_test_db@mail.ru',
+                [form.data['email']],
+                fail_silently=False,
+            )
             messages.add_message(request, messages.INFO, f'{form.data["username"]} вы успешно создали в аккаунт')
             return HttpResponseRedirect(reverse('user:login'))
         else:
@@ -62,8 +71,6 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 def logout(request):
-    context = {
-        'title': 'Разлогирование',
-    }
+    auth.logout(request)
 
-    return render(request, 'users/logout.html', context)
+    return HttpResponseRedirect(reverse('home'))
