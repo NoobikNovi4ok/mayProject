@@ -25,20 +25,48 @@
                 </svg>
     <h1 class="h3 mb-3 fw-normal">{{title}}</h1>
       <div class="form-floating">
-      <input type="text" class="form-control mb-2" id="nickname" name="nickname" placeholder="Nickname" autocomplete="username">
-      <label for="nickname">Никнейм</label>
+      <input type="text" class="form-control mb-2" id="username" name="username" placeholder="username" autocomplete="username" required value="{% if form.username.value %}{{form.username.value}}{% endif %}">
+      <label for="username">Никнейм</label>
+          {% if messages %}
+                {% for message in messages %}
+          {% if message.tags == 'username error' %}
+                        <div class="alert alert-danger alert-dismissible fade show" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+          {% endif %}
+                {% endfor %}
+            {% endif %}
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control mb-2" id="email" name="email" placeholder="name@example.com" autocomplete="example@gmail.com">
+      <input type="email" class="form-control mb-2" id="email" name="email" placeholder="name@example.com" autocomplete="example@gmail.com" required>
       <label for="email">Email</label>
+                  {% if messages %}
+                {% for message in messages %}
+        {% if message.tags == 'email error' %}
+                        <div class="alert alert-danger alert-dismissible fade show" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+            {% endif %}
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control mb-2" id="password1" name="password1" autocomplete="new-password" placeholder="Password">
+      <input type="password" class="form-control mb-2" id="password1" name="password1" autocomplete="new-password" placeholder="Password" required>
       <label for="password1">Пароль</label>
     </div>
+      {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == "passwords error" %}
+                        <div class="alert alert-danger alert-dismissible fade show" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
     <div class="form-floating">
-      <input type="password" class="form-control mb-2" id="password2" name="password2" autocomplete="new-password" placeholder="Password">
+      <input type="password" class="form-control mb-2" id="password2" name="password2" autocomplete="new-password" placeholder="Password" required>
       <label for="password2">Подтверждение пароля</label>
+                  {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == "password error" %}
+                        <div class="alert alert-danger alert-dismissible fade show" {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
     </div>
     <button class="btn orange my-2" style="background:rgba(143, 255, 0, 0.5);" type="submit">Зарегистрироваться</button><br>
     <a href="{% url 'user:login' %}" class="link-danger" style="text-decoration:none;transition: all 1s ease-in;">Авторизоваться</a>

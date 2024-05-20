@@ -6,8 +6,17 @@
 
 
 {% block content %}
+{% csrf_token %}
+<div class="container">
+    {% if messages %}
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
     <h1>Главная страница</h1>
     <p>Главная страница</p>
+</div>
+
 
 {% endblock %}
 {% block podval %}
