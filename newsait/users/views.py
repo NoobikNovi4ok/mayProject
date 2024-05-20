@@ -18,7 +18,7 @@ def login(request):
                 messages.add_message(request, messages.INFO, f'{user} вы успешно вошли в аккаунт')
                 return HttpResponseRedirect(reverse('home'))
         else:
-            messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз')
+            messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз', extra_tags='password_login ')
     else:
         form = UserLoginForm()
     context = {
@@ -33,7 +33,7 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid() and (form.data['password1'] == form.data['password2']) and not(form.data['email'] in User.objects.all().values_list('email', flat=True)):
             form.save()
-            messages.add_message(request, messages.INFO, f'{form.data['username']} вы успешно создали в аккаунт')
+            messages.add_message(request, messages.INFO, f'{form.data["username"]} вы успешно создали в аккаунт')
             return HttpResponseRedirect(reverse('user:login'))
         else:
             if form.data['username'] in User.objects.all().values_list('username', flat=True):
