@@ -1,13 +1,15 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm,UserProfileForm
 from django.contrib import auth
 from django.urls import reverse
 from django.contrib import messages
 from users.models import User
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 def login(request):
+    message = request.GET.get('message', None)
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
@@ -19,13 +21,21 @@ def login(request):
                 messages.add_message(request, messages.INFO, f'{user} вы успешно вошли в аккаунт')
                 return HttpResponseRedirect(reverse('home'))
         else:
-            messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз', extra_tags='password_login ')
+            messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз', extra_tags='password_login')
     else:
         form = UserLoginForm()
-    context = {
-        'title': 'Авторизация',
-        'form': form,
-    }
+    if message:
+        message = 'Пожалуйста войдите в аккаунт, чтобы добавить товар в корзину'
+        context = {
+            'title': 'Авторизация',
+            'form': form,
+            'message': message
+        }
+    else:
+        context = {
+            'title': 'Авторизация',
+            'form': form,
+        }
 
     return render(request, 'users/login.html', context)
 
@@ -63,13 +73,25 @@ def registration(request):
 
     return render(request, 'users/registration.html', context)
 
+@login_required
 def profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('user:profile'))
+        else:
+            messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз', extra_tags='password_login')
+    else:
+        form = UserProfileForm(instance=request.user)
     context = {
         'title': 'Профиль пользователя',
+        'form': form,
     }
 
     return render(request, 'users/profile.html', context)
 
+@login_required
 def logout(request):
     auth.logout(request)
 

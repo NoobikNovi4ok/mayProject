@@ -32,7 +32,7 @@
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.country}} 1 кг</p>
                     <p class="card-text">{{product.cost}} Р</p>
-                    <a href="#" class="btn btn-primary"
+                    <a href="{% if user.is_authenticated %}{% url 'catalog' %}{% else %}{% url 'user:login' %}?message=1{% endif %}" class="btn btn-primary"
                        style="border:solid 1px;background: rgba(143, 255, 0, 0.5);color:#000;">В корзину</a>
                     <a href="product/{{product.slug}}" class="btn btn-secondary"
                        style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
