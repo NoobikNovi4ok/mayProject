@@ -1,0 +1,59 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$KTENEhUk4X3UnIIBFM9qRl$N240sOopYdhG9Ja39X7UvGAWQ5RepRyocA6sOcY2TiE=",
+      "last_login": "2024-05-20T21:29:40.830Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-19T21:37:40Z",
+      "image": "users_images/photo_2023-02-13_14-57-35.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$EjraoKC0ty52NMr4gFvC3l$cOwGdpVDpMjoGRE+FqaoLlLDBJF18XAL8Y2oqwLuRoU=",
+      "last_login": "2024-05-20T02:51:16.185Z",
+      "is_superuser": false,
+      "username": "Delss28",
+      "first_name": "",
+      "last_name": "",
+      "email": "deliss2008@mail.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-20T02:50:58.586Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$SmrOiOA9DI8PHA8ag1SSJ9$AiB/uWzy8lZVgoqMj9wla6R8yaVUeOshoMniGrUgBcE=",
+      "last_login": "2024-05-20T21:29:02.010Z",
+      "is_superuser": false,
+      "username": "Danil18",
+      "first_name": "",
+      "last_name": "",
+      "email": "antonpetya1330@mail.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-20T19:48:28.632Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
