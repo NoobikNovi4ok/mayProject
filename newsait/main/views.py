@@ -2,7 +2,12 @@ from django.shortcuts import render
 from CatalogApp.models import Products, Categories, Countries
 from django.core.paginator import Paginator
 def index(request):
-    return render(request, 'main/index.html')
+    products = Products.objects.all()[:4]
+    context= {
+        'products':products
+
+    }
+    return render(request, 'main/index.html',context)
 
 def catalog(request):
     categories = Categories.objects.all()

@@ -43,7 +43,12 @@
             <div class="col-sm-5 col-md-5 col-lg-5 align-items-center text-center">
                 <h3 style="margin-bottom:0;font-weight:bolder;">{{product.cost}} ₽</h3>
                 <p>Цена за 1кг</p>
-                <a href="#" class="orange btn bigger_button" style="background-color: rgba(255, 138, 0,0.5);">Добавить в корзину</a>
+                {% if user.is_authenticated %}
+                <a href="#" class="orange_bigger btn" style="background-color: rgba(255, 138, 0,0.5);padding-top:25px;padding-bottom:25px;">Добавить в корзину</a>
+                {% else %}
+                <p>Для того чтобы добавить {{product.name}} в корзину, необходимо авторизоваться</p>
+                <a href="{% url 'user:login' %}" class="orange_bigger btn" style="background: rgba(143, 255, 0, 0.5);padding-top:25px;padding-bottom:25px;">Авторизоваться</a>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -18,6 +18,10 @@ body {
         border:solid 1px;
         transform:scale(1.02);
     }
+    .orange_bigger:hover{
+        border:solid 1px;
+        transform:scale(1.03);
+    }
     .card > :hover {
         border-radius:30px;
         cursor:pointer;
@@ -39,6 +43,9 @@ body {
     }
     .orange:active {
         transform:scale(1.02);
+    }
+    .orange_bigger:active{
+        transform:scale(1.03);
     }
     .card > :active {
         border-radius:30px;
@@ -137,6 +144,13 @@ hr {
         width:64px;
         height:64px;
     }
+    .orange_bigger{
+        width:256px;
+        height:75px;
+    }
+    .knopo4ka_index{
+        margin-top:20px;
+    }
 }
 
 @media(min-width:576px){
@@ -202,6 +216,11 @@ hr {
         width:75px;
         height:75px;
     }
+    .orange_bigger{
+        width:256px;
+        height:80px;
+    }
+
 
 }
 
@@ -235,6 +254,12 @@ hr {
 }
 
 .orange {
+    border:solid 1px;
+    color:#000;
+    transition: all 0.1s ease-in-out;
+}
+
+.orange_bigger {
     border:solid 1px;
     color:#000;
     transition: all 0.1s ease-in-out;
