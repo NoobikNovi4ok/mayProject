@@ -16,23 +16,44 @@
             {% endif %}
     <h1>Главная страница</h1>
     <p>Главная страница</p>
-    <div class="row">
+    <section>
         <div class="col-lg-12 col-md-12 col-sm-12"><h3>Наши преимущества</h3></div>
-        <div class="row">
-            <div class="d-block">
-                <img src="{% static 'main/img/apple_icon.png' %}" alt="Соц. сети">
-                <p>Свежие фрукты</p>
+    </section>
+    <section>
+        <div class="col-lg-12 col-md-12 col-sm-12"><h3>Наши преимущества</h3></div>
+        <div class="row justify-content-between text-center align-items-center">
+            <div class="d-block col-lg-3 col-md-4 col-sm-4">
+                <img src="{% static 'main/img/apple_icon.png' %}" alt="Свежие фрукты" class="main_icon">
+                <p style="margin-bottom:0;">Свежие фрукты</p>
             </div>
-            <div>
-                <img src="">
-                <p>Низкие цены</p>
+            <div class="d-block col-lg-3 col-md-4 col-sm-4">
+                <img src="{% static 'main/img/shopping_icon.png' %}" alt="Низкие цены" class="main_icon">
+                <p style="margin-bottom:0;">Низкие цены</p>
             </div>
-            <div>
-                <img src="">
-                <p>Давно на рынке</p>
+            <div class="d-block col-lg-3 col-md-4 col-sm-4">
+                <img src="{% static 'main/img/open_store_icon.png' %}" alt="Давно на рынке" class="main_icon">
+                <p style="margin-bottom:0;">Давно на рынке</p>
             </div>
         </div>
-    </div>
+</section>
+    <section>
+        <div class="col-lg-12 col-md-12 col-sm-12"><h3>Специально для вас</h3></div>
+        <div class="row justify-content-between text-center align-items-center">
+            <div class="col-lg-5 col-md-4 col-sm-4">
+                {% if user.is_authenticated %}
+                <a class="btn orange" href="{% url 'catalog' %}" style="background: rgba(143, 255, 0, 0.5);color:#000;">Перейти в каталог</a>
+            </div>
+            <div class="col-lg-5 col-md-4 col-sm-4">
+                <p style="margin-bottom:0;">Вы уже вошли в аккаунт. Нажмите на кнопку чтобы перейти к покупкам.</p>
+                {% else %}
+                <a class="btn orange">Вход или регистрация</a>
+            </div>
+            <div class="col-lg-5 col-md-4 col-sm-4">
+                <p style="margin-bottom:0;">Войдите на сайт, чтобы иметь возможность
+заказывать фрукты, а также  видеть историю своих покупок</p>
+                {% endif %}
+            </div>
+    </section>
 </div>
 
 
