@@ -59,6 +59,9 @@ body {
         opacity: 0.6;
         transform: scale(1.04);
     }
+    .navbar-toggler:active{
+        box-shadow:0px 0px 5px 5px black;
+    }
 }
 
 
@@ -160,6 +163,19 @@ hr {
         font-size: 1.2rem !important;
         font-weight:bolder;
     }
+    .slider{
+        width:100%;
+        height:350px;
+    }
+    .slider-text{
+        text-align:center !important;
+        left:50% !important;
+        margin-top:30px;
+        margin-right:40px;
+    }
+    .slider-button{
+        left:50% !important;
+    }
 }
 
 @media(min-width:576px){
@@ -226,7 +242,7 @@ hr {
         height:75px;
     }
     .orange_bigger{
-        width:256px;
+        width:270px;
         height:80px;
     }
     .dropdown-menu.show{
@@ -235,6 +251,14 @@ hr {
     .navbar_textio{
         font-size: 1.5rem !important;
         font-weight:bolder;
+    }
+    .slider{
+        width:100%;
+        height:500px;
+    }
+    .slider-text{
+        line-height:5;
+        margin-top:30px;
     }
 
 
@@ -294,8 +318,6 @@ hr {
 }
 
 .slider{
-    wight:100%;
-    height:500px;
     position:relative;
     overflow:hidden;
     border:solid 1px;
@@ -306,8 +328,6 @@ hr {
     width:100%;
     height:100%;
     position:absolute;
-    top:0;
-    left:0;
     opacity:0;
     transition: opacity 0.7s ease;
 }
@@ -325,8 +345,9 @@ hr {
 
 .slider-text{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    text-align:end;
+    top:25%;
+    left:70%;
     transform: translate(-50%, -50%);
     z-index: 1;
     opacity:0;
@@ -336,12 +357,35 @@ hr {
     opacity:1;
 }
 
+.slider-button{
+    position: absolute;
+    top:75%;
+    left:90%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity:0;
+}
+.slider-button.active{
+    opacity:1;
+}
+
 .slider .prev{
+    width:3rem;
     left:10px;
 }
 
+.slider .prev:hover{
+    opacity:0.7;
+    cursor:pointer;
+}
 .slider .next{
+    width:3rem;
     right:10px;
+}
+
+.slider .next:hover{
+    opacity:0.7;
+    cursor:pointer;
 }
 
 .model_items {

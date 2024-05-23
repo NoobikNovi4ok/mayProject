@@ -1,18 +1,23 @@
 const images = document.querySelectorAll('.slider-img');
 const texts = document.querySelectorAll('.slider-text');
 const controlls = document.querySelectorAll('.controlls');
+const buttons = document.querySelectorAll('.slider-button');
+let buttonIndex = 0;
 let imageIndex = 0;
 let textIndex = 0;
 
 function show(index){
     images[imageIndex].classList.remove('active');
     texts[textIndex].classList.remove('active');
+    buttons[buttonIndex].classList.remove('active');
 
     images[index].classList.add('active');
     texts[index].classList.add('active');
+    buttons[index].classList.add('active');
 
     textIndex = index;
     imageIndex = index;
+    buttonIndex = index;
 }
 
 controlls.forEach((e) => {
