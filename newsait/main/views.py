@@ -1,38 +1,124 @@
+from django.db.models import Q
 from django.shortcuts import render
 from CatalogApp.models import Products, Categories, Countries
 from django.core.paginator import Paginator
 def index(request):
     products = Products.objects.all()[:4]
     context= {
-        'products':products
+        'products': products
 
     }
     return render(request, 'main/index.html',context)
 
 def catalog(request):
     categories = Categories.objects.all()
+    countries = Countries.objects.all()
+    products = Products.objects.all()
     category_id = request.GET.getlist('category', 0)
+    country_id = request.GET.getlist('country', 0)
     page = request.GET.get('page', 1)
-    if category_id:
-        products = Products.objects.filter(category__in=category_id)
+    sort = request.GET.getlist('sort', None)
+    if sort and 'd' not in sort:
+        if 'DESC' in sort:
+            if country_id and category_id:
+                products = Products.objects.filter(
+                    Q(category_id__in=category_id) & Q(country_id__in=country_id)).distinct().order_by('-cost')
+            elif category_id:
+                products = Products.objects.filter(category__in=category_id).distinct().order_by('-cost')
+            elif country_id:
+                products = Products.objects.filter(country__in=country_id).distinct().order_by('-cost')
+            else:
+                products = Products.objects.all().distinct().order_by('-cost')
+        elif 'ASC' in sort:
+            if country_id and category_id:
+                products = Products.objects.filter(
+                    Q(category_id__in=category_id) & Q(country_id__in=country_id)).order_by('cost')
+            elif category_id:
+                products = Products.objects.filter(category__in=category_id).order_by('cost')
+            elif country_id:
+                products = Products.objects.filter(country__in=country_id).order_by('cost')
+            else:
+                products = Products.objects.all().order_by('cost')
     else:
-        products = Products.objects.all()
-
+        if country_id and category_id:
+            products = Products.objects.filter(
+                Q(category_id__in=category_id) & Q(country_id__in=country_id))
+        elif category_id:
+            products = Products.objects.filter(category__in=category_id)
+        elif country_id:
+            products = Products.objects.filter(country__in=country_id)
     paginator = Paginator(products, 2)
     current_page = paginator.page(page)
 
-    if category_id:
-        category_id = [int(item) for item in category_id]
-        context = {
-            'category': categories,
-            'products': current_page,
-            'select': category_id,
-        }
+    if sort:
+        if category_id and country_id:
+            country_id = [int(item) for item in country_id]
+            category_id = [int(item) for item in category_id]
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select': category_id,
+                'select_country': country_id,
+                'select_sort': sort
+            }
+        elif category_id:
+            category_id = [int(item) for item in category_id]
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select': category_id,
+                'select_sort': sort
+            }
+        elif country_id:
+            country_id = [int(item) for item in country_id]
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select_country': country_id,
+                'select_sort': sort
+            }
+        else:
+            print(current_page)
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select_sort': sort
+            }
     else:
-        context = {
-            'category': categories,
-            'products': current_page,
-        }
+        if category_id and country_id:
+            country_id = [int(item) for item in country_id]
+            category_id = [int(item) for item in category_id]
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select': category_id,
+                'select_country': country_id
+            }
+        elif category_id:
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select': category_id,
+            }
+        elif country_id:
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+                'select_country': country_id,
+            }
+        else:
+            context = {
+                'countries': countries,
+                'category': categories,
+                'products': current_page,
+            }
 
     return render(request, 'main/catalog.html', context)
 

@@ -15,6 +15,28 @@
                 {% endfor %}
             {% endif %}
     <section>
+        <div class="slider mb-2">
+            <div>
+                <h1 class="slider-text">Первый текст</h1>
+                <img src="{% static 'main/img/first_image_slider.png' %}" class="slider-img">
+            </div>
+            <div>
+                <h1 class="slider-text">Второй текст</h1>
+                <img src="{% static 'main/img/second_image_slider.jpg' %}" class="slider-img">
+            </div>
+            <div>
+                <h1 class="slider-text">Третий текст</h1>
+                <img src="{% static 'main/img/third_image_slider.jpg' %}" class="slider-img">
+            </div>
+            <div>
+                <img class="prev controlls slider-controlls" src="{% static 'main/img/prev_icon.png' %}">
+            </div>
+            <div>
+                <img class="next controlls slider-controlls" src="{% static 'main/img/next_icon.png' %}">
+            </div>
+        </div>
+    </section>
+    <section>
         <div class="col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap align-items-center cardio">
             {% for product in products %}
             <div class="card align-items-center text-center">
