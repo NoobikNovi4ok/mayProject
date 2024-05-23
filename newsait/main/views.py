@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.shortcuts import render
 from CatalogApp.models import Products, Categories, Countries
 from django.core.paginator import Paginator
+from main.utils import q_search
 def index(request):
     products = Products.objects.all()[:4]
     context= {
@@ -18,6 +19,9 @@ def catalog(request):
     country_id = request.GET.getlist('country', 0)
     page = request.GET.get('page', 1)
     sort = request.GET.getlist('sort', None)
+    query = request.GET.get('q', None)
+    if query:
+        products = q_search(query)
     if sort and 'd' not in sort:
         if 'DESC' in sort:
             if country_id and category_id:
@@ -47,6 +51,7 @@ def catalog(request):
             products = Products.objects.filter(category__in=category_id)
         elif country_id:
             products = Products.objects.filter(country__in=country_id)
+
     paginator = Paginator(products, 2)
     current_page = paginator.page(page)
 

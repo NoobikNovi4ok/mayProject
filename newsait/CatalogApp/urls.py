@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from CatalogApp.views import ProductApi
 
 urlpatterns = [
-    path(r'<slug:slug>', views.ProductApi),
+    path(r'<slug:slug>', ProductApi),
 ]

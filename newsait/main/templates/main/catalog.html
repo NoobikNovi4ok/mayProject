@@ -9,7 +9,10 @@
 <div class="container">
     <div class="row justify-content-between align-items-start">
         <div class="col-sm-4 col-md-4 col-lg-3 contact_modal_without">
-            <form>
+            <form action="{% if request.GET.q %}{% url 'search' %}{% else %}{% url 'catalog' %}{% endif %}" method="get">
+                {% if request.GET.q %}
+                    <input type="hidden" name="q" value="{{request.GET.q}}">
+                {% endif %}
                 <div class="dropdown mb-1">
                     <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu1"
                         data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="false" aria-expanded="true">
@@ -48,6 +51,7 @@
         </div>
 
         <div class="col-sm-6 col-md-8 col-lg-8 d-flex flex-wrap align-items-center cardio">
+            {% if products %}
             {% for product in products %}
             <div class="card align-items-center text-center">
                 <div class="card-body">
@@ -62,13 +66,16 @@
                 </div>
             </div>
             {% endfor %}
+            {% else %}
+                <h3>Товаров по данному запросу не найдено</h3>
+            {% endif %}
         </div>
     </div>
     {% if products.paginator.count > 2 %}
         <nav aria-label="Навигация" class="mx-4 text-center align-items-center">
             <ul class="pagination justify-content-center" style="margin-bottom:0;margin-top:10px;">
                 <li class="page-item">
-                    <a class="page-link" href="?page=1{% for cid in select %}&category={{ cid }}{% endfor %}{% for country in select_country %}&country={{ country }}{% endfor %}{% for sort in select_sort %}&sort={{sort}}{% endfor %}" aria-label="Первая">
+                    <a class="page-link" href="?page=1{% for cid in select %}&category={{ cid }}{% endfor %}{% for country in select_country %}&country={{ country }}{% endfor %}{% for sort in select_sort %}&sort={{sort}}{% endfor %}{% if request.GET.q %}%q={{q}}{% endif %}" aria-label="Первая">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>

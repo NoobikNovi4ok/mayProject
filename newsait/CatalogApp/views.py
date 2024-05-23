@@ -18,7 +18,7 @@ def ProductApi(request, slug = None):
                 'products_serializer': [products_serializer.data],
                 'country_name':country_name,
             }
-            #return render(request, 'CatalogApp/main.html', {'products_serializer':[products_serializer.data]})
+
             return render(request, 'CatalogApp/main.html', context)
         else:
             return JsonResponse("404",safe=False)
