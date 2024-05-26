@@ -6,7 +6,7 @@ let buttonIndex = 0;
 let imageIndex = 0;
 let textIndex = 0;
 
-function show(index){
+function show(index) {
     images[imageIndex].classList.remove('active');
     texts[textIndex].classList.remove('active');
     buttons[buttonIndex].classList.remove('active');
@@ -30,17 +30,56 @@ controlls.forEach((e) => {
             }
 
             show(index);
-        } else if (event.target.classList.contains('next'))
-        {
+        } else if (event.target.classList.contains('next')) {
             let index = imageIndex + 1;
-            if (index >= images.length){
+            if (index >= images.length) {
                 index = 0;
             }
             show(index);
         }
     })
-})
+});
+
+let autoplayInterval;
+
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        let index = imageIndex + 1;
+        if (index >= images.length) {
+            index = 0;
+        }
+        show(index);
+    }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
 
 window.addEventListener('load', () => {
     show(imageIndex);
+    startAutoplay(); // Start autoplay on load
+
+    // Stop autoplay when the user interacts with the slider
+    controlls.forEach((e) => {
+
+        e.addEventListener('mouseover', stopAutoplay);
+        e.addEventListener('mouseout', startAutoplay);
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const sliderButtons = document.querySelectorAll('.slider-button.btn.orange_without');
+
+  sliderButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('active')) {
+        window.location.href = button.dataset.href; // Получаем `href` из `data-href`
+      } else {
+        // Убираем атрибут href
+        button.removeAttribute('href');
+      }
+    });
+  });
 });

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'CatalogApp',
     'main',
     'users',
+    'basket',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -65,7 +65,8 @@ def catalog(request):
                 'products': current_page,
                 'select': category_id,
                 'select_country': country_id,
-                'select_sort': sort
+                'select_sort': sort,
+                'query': query
             }
         elif category_id:
             category_id = [int(item) for item in category_id]
@@ -74,7 +75,8 @@ def catalog(request):
                 'category': categories,
                 'products': current_page,
                 'select': category_id,
-                'select_sort': sort
+                'select_sort': sort,
+                'query': query
             }
         elif country_id:
             country_id = [int(item) for item in country_id]
@@ -83,7 +85,8 @@ def catalog(request):
                 'category': categories,
                 'products': current_page,
                 'select_country': country_id,
-                'select_sort': sort
+                'select_sort': sort,
+                'query': query
             }
         else:
             print(current_page)
@@ -91,7 +94,8 @@ def catalog(request):
                 'countries': countries,
                 'category': categories,
                 'products': current_page,
-                'select_sort': sort
+                'select_sort': sort,
+                'query': query
             }
     else:
         if category_id and country_id:
@@ -102,7 +106,8 @@ def catalog(request):
                 'category': categories,
                 'products': current_page,
                 'select': category_id,
-                'select_country': country_id
+                'select_country': country_id,
+                'query': query
             }
         elif category_id:
             context = {
@@ -110,6 +115,7 @@ def catalog(request):
                 'category': categories,
                 'products': current_page,
                 'select': category_id,
+                'query': query
             }
         elif country_id:
             context = {
@@ -117,12 +123,14 @@ def catalog(request):
                 'category': categories,
                 'products': current_page,
                 'select_country': country_id,
+                'query': query
             }
         else:
             context = {
                 'countries': countries,
                 'category': categories,
                 'products': current_page,
+                'query': query
             }
 
     return render(request, 'main/catalog.html', context)

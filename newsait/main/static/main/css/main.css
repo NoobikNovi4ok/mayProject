@@ -18,6 +18,10 @@ body {
         border:solid 1px;
         transform:scale(1.02);
     }
+    .slider-button.active:hover{
+        background: rgba(143, 255, 0, 1);
+        cursor:pointer !important;
+    }
     .orange_bigger:hover{
         border:solid 1px;
         transform:scale(1.03);
@@ -43,6 +47,10 @@ body {
     }
     .orange:active {
         transform:scale(1.02);
+    }
+    .orange_without:active{
+        background: rgba(143, 255, 0, 0.5);
+        cursor:pointer;
     }
     .orange_bigger:active{
         transform:scale(1.03);
@@ -176,6 +184,9 @@ hr {
     .slider-button{
         left:50% !important;
     }
+    .nal_margin{
+        margin-top:20px;
+    }
 }
 
 @media(min-width:576px){
@@ -184,12 +195,12 @@ hr {
         margin-bottom:0%;
     }
     .cardio{
-    justify-content: space-around;
+        justify-content: space-around;
         padding:0;
     }
     .col-md-5{
         width:45%;
-        }
+    }
     .card-img{
         width:180px;
         height:180px;
@@ -257,10 +268,12 @@ hr {
         height:500px;
     }
     .slider-text{
-        line-height:5;
+        line-height:2;
         margin-top:30px;
     }
-
+    .nal_margin{
+        margin-top:0px;
+    }
 
 }
 
@@ -268,6 +281,10 @@ hr {
     .main_icon{
         width:90px;
         height:90px;
+    }
+    .slider-text{
+        line-height:5;
+        margin-top:30px;
     }
 }
 .card {
@@ -303,6 +320,13 @@ hr {
     border:solid 1px;
     color:#000;
     transition: all 0.1s ease-in-out;
+}
+
+.orange_without {
+    border:solid 1px;
+    color:#000;
+    transition: all 0.1s ease-in-out;
+    opacity:1;
 }
 
 .orange_bigger {
@@ -367,6 +391,7 @@ hr {
 }
 .slider-button.active{
     opacity:1;
+    z-index:2;
 }
 
 .slider .prev{
@@ -386,6 +411,10 @@ hr {
 .slider .next:hover{
     opacity:0.7;
     cursor:pointer;
+}
+
+.active_jg_notificataion{
+    visibility:visible !important;
 }
 
 .model_items {

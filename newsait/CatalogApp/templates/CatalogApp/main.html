@@ -44,7 +44,8 @@
                 <h3 style="margin-bottom:0;font-weight:bolder;">{{product.cost}} ₽</h3>
                 <p>Цена за 1кг</p>
                 {% if user.is_authenticated %}
-                <a href="#" class="orange_bigger btn" style="background-color: rgba(255, 138, 0,0.5);padding-top:25px;padding-bottom:25px;">Добавить в корзину</a>
+                <a href="{% url 'basket:basket_add' %}" class="orange_bigger btn add-to-cart" style="background-color: rgba(255, 138, 0,0.5);padding-top:25px;padding-bottom:25px;" data-product-id="{{ product.product_id }}">Добавить в корзину</a>
+                {% csrf_token %}
                 {% else %}
                 <p>Для того чтобы добавить {{product.name}} в корзину, необходимо авторизоваться</p>
                 <a href="{% url 'user:login' %}" class="orange_bigger btn" style="background: rgba(143, 255, 0, 0.5);padding-top:25px;padding-bottom:25px;">Авторизоваться</a>
@@ -54,4 +55,8 @@
     </div>
 </div>
     {% endfor %}
+<div class="container">
+    <div id="jq-notification" class="alert alert-success col-lg-3 col-md-6 col-sm-9 mt-1" style="display:none;visibility:hidden;"></div>
+</div>
+
 {% endblock %}

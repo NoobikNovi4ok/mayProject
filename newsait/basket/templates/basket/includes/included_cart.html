@@ -1,0 +1,79 @@
+{% load static %}
+{% load basket_tags %}
+{% if basket %}
+{% else %}
+    {% user_basket request as basket %}
+{% endif %}
+<div class="card mb-3 text-bg-light shadow-lg col-md-6 col-lg-9" style="width:100%">
+    {% for cart in basket %}
+    {% csrf_token %}
+    <div class="card-header">
+                                                    <h5 class="card-title">{{cart.product.name}}</h5>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <div class="row text-center">
+                                                            <div class="col p-0">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-btn">
+                                                                        <button type="button" class="btn btn-dark btn-sm decrement"
+                                                                            data-cart-id="{{cart.basket_id}}"
+                                                                                data-cart-change-url="{% url 'basket:basket_change' %}">
+                                                                            {% csrf_token %}
+                                                                            -</button>
+                                                                    </span>
+                                                                    <input type="text" class="form-control number" value="{{cart.quantity}}"
+                                                                        readonly>
+                                                                    <span class="input-group-btn">
+                                                                        <button type="button" class="btn btn-dark btn-sm increment"
+                                                                            data-cart-id="{{cart.basket_id}}"
+                                                                                data-cart-change-url="{% url 'basket:basket_change' %}">
+                                                                            {% csrf_token %}
+                                                                            +</button>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col p-0">
+                                                                <p>{{ cart.product.cost }} = </p>
+                                                            </div>
+                                                            <div class="col p-0"><strong>{{ cart.products_price }} $</strong></div>
+                                                            <div class="col p-0">
+
+                                                                <a href="{% url 'basket:basket_remove' %}" class="remove-from-cart"
+                                                                   data-cart-id="{{ cart.basket_id }}">
+                                                                    {% csrf_token %}
+                                                                    <img class="mx-1" src="{% static 'main/img/trash_icon.png' %}"
+                                                                        alt="Trash Icon" width="16" height="16">
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+    {% endfor %}
+
+
+                                            </div>
+
+                                        {% if basket %}
+                                            <div class="column">
+                                                <div class="card mb-3 shadow-lg">
+                                                    <div class="card-footer">
+                                                        <p class="float-left">Итого <strong>{{ basket.total_quantity }}</strong> товар(а) на сумму</p>
+                                                        <h4 class="float-left"><strong>{{ basket.total_price }} $</strong></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6 col-sm-8">
+                                                    <a class="btn orange" style="background: rgba(143, 255, 0, 0.5);" href="../orders/create_order.html">
+                                                    Оформить заказ
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                        <div class="col-lg-4 col-md-6 col-sm-8">
+                                        <p>Корзина пуста</p>
+                                            <a class="btn orange" style="background: rgba(143, 255, 0, 0.5);" href="{% url 'catalog' %}">
+                                                Перейти в каталог
+                                            </a>
+    </div>
+                                        {% endif %}

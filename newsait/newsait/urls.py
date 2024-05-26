@@ -25,7 +25,8 @@ urlpatterns = [
     path('product/', include('CatalogApp.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('user/', include('users.urls', namespace='user'))
+    path('user/', include('users.urls', namespace='user')),
+    path('basket/', include('basket.urls', namespace='basket'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

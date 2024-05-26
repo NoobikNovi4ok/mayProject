@@ -96,3 +96,6 @@ def logout(request):
     auth.logout(request)
 
     return HttpResponseRedirect(reverse('home'))
+
+def users_basket(request):
+    return render(request,'users/users_basket.html')

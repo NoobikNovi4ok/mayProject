@@ -17,18 +17,18 @@
     <section>
         <div class="slider mb-2">
             <div>
-                <h2 class="slider-text col-lg-6 col-md-6 col-sm-6 " style="text-align:end;top:25%;left:70%;">Магазин открылся<br>Спешите приобрести фрукты</h2>
-                <a class="slider-button">Купить</a>
+                <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:end;left:45%;">Магазин открылся<br>Спешите приобрести фрукты</h2>
+                <a class="slider-button btn orange_without" style="cursor:default;left:85%;" id="buy_1" data-href="{% url 'catalog' %}">Купить</a>
                 <img src="{% static 'main/img/first_image_slider.png' %}" class="slider-img">
             </div>
             <div>
-                <h2 class="slider-text">Второй текст</h2>
-                <a class="slider-button">Авторизоваться</a>
+                <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:start;left:65%">Зайти в аккаунт</h2>
+                <a class="slider-button btn orange_without" style="text-align:start;left:25%;cursor:default;" id="buy_2" data-href="{% url 'user:login' %}">Авторизоваться</a>
                 <img src="{% static 'main/img/second_image_slider.jpg' %}" class="slider-img">
             </div>
             <div>
-                <h2 class="slider-text">Третий текст</h2>
-                <a class="slider-button">Связаться</a>
+                <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:end;left:45%;">Есть вопросы?</h2>
+                <a class="slider-button btn orange_without" style="cursor:default;left:85%;" id="buy_3" data-href="{% url 'contact' %}">Связаться</a>
                 <img src="{% static 'main/img/third_image_slider.jpg' %}" class="slider-img">
             </div>
             <div>
@@ -49,13 +49,14 @@
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.country}} 1 кг</p>
                     <p class="card-text">{{product.cost}} Р</p>
-                    <a href="{% if user.is_authenticated %}{% url 'catalog' %}{% else %}{% url 'user:login' %}?message=1{% endif %}" class="btn btn-primary"
+                    <a href="{% if user.is_authenticated %}{% url 'basket:basket_add' %}{% else %}{% url 'user:login' %}?message=1{% endif %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.product_id }}"
                        style="border:solid 1px;background: rgba(143, 255, 0, 0.5);color:#000;">В корзину</a>
                     <a href="product/{{product.slug}}" class="btn btn-secondary"
                        style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
                 </div>
             </div>
             {% endfor %}
+                <div id="jq-notification" class="alert alert-success col-lg-3 col-md-6 col-sm-9 mt-1" style="display:none;visibility:hidden;"></div>
         </div>
     </section>
         <section class="mb-2">
