@@ -187,6 +187,9 @@ hr {
     .nal_margin{
         margin-top:20px;
     }
+    .not_now{
+        display:block;
+    }
 }
 
 @media(min-width:576px){
@@ -273,6 +276,9 @@ hr {
     }
     .nal_margin{
         margin-top:0px;
+    }
+    .not_now{
+        display:flex;
     }
 
 }

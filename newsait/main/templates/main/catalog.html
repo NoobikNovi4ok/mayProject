@@ -59,9 +59,15 @@
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.country}} 1 кг</p>
                     <p class="card-text">{{product.cost}} Р</p>
-                    <a href="{% if user.is_authenticated %}{% url 'basket:basket_add' %}{% else %}{% url 'user:login' %}?message=1{% endif %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.product_id }}"
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-primary add-to-cart"
+                       data-product-id="{{ product.product_id }}"
                        style="border:solid 1px;background: rgba(143, 255, 0, 0.5);color:#000;">В корзину</a>
                     {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="orange btn" style="background: rgba(143, 255, 0, 0.5)">В корзину</a>
+                    {% endif %}
+
                     <a href="product/{{product.slug}}" class="btn btn-secondary"
                        style="border:solid 1px; background: rgba(255, 138, 0,0.5);color:#000;">Подробнее</a>
                 </div>

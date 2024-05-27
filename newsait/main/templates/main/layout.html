@@ -85,7 +85,7 @@
                     {% if user.is_authenticated %}
                     <li class="header_effect">
                         <a href="{% url 'user:profile' %}" class="nav-link text-black align-items-center text-center">
-                            <img src="{% if user.image %}{{user.image.url}}{% else %}{% static 'main/img/vk.png' %}{% endif %}" class="d-block mx-auto icon_plus"/>
+                            <img src="{% if user.image %}{{user.image.url}}{% else %}{% static 'main/img/anonymous.png' %}{% endif %}" class="d-block mx-auto icon_plus"/>
                             {{user.username}}
                         </a>
                     </li>

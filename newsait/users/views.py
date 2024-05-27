@@ -1,3 +1,4 @@
+from django.db.models import Prefetch
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from users.forms import UserLoginForm, UserRegistrationForm,UserProfileForm
@@ -7,6 +8,7 @@ from django.contrib import messages
 from users.models import User
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from orders.models import Order, OrderItem
 
 def login(request):
     message = request.GET.get('message', None)
@@ -84,9 +86,21 @@ def profile(request):
             messages.error(request, 'Неправильный никнейм или пароль. Попробуйте еще раз', extra_tags='password_login')
     else:
         form = UserProfileForm(instance=request.user)
+
+    orders = (
+        Order.objects.filter(user=request.user)
+        .prefetch_related(
+            Prefetch(
+                "orderitem_set",
+                queryset=OrderItem.objects.select_related("product"),
+            )
+        )
+        .order_by("-id")
+    )
     context = {
         'title': 'Профиль пользователя',
         'form': form,
+        'orders': orders
     }
 
     return render(request, 'users/profile.html', context)
