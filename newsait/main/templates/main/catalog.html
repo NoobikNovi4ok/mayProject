@@ -20,7 +20,7 @@
                     </button>
                     <div class="dropdown-menu" style="padding:0;" aria-labelledby="dropdownMenu1">
                         {% for category in category %}
-                            <label class="text-center my-2 mx-2"><img src="{{category.icon.url}}" class="icon_plus" style="padding-right:5px;"><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label><br><hr style="margin:0;">
+                            <label class="text-center my-2 mx-2"><img src="{{category.icon.url}}" class="icon_plus" style="padding-right:5px;" alt="{{category.name}}"><input type="checkbox" name="category" value="{{ category.category_id }}" {% if category.category_id in select %} checked {% endif %}> {{ category.name }}</label><br><hr style="margin:0;">
                         {% endfor %}
                     </div>
                 </div>
@@ -55,7 +55,7 @@
             {% for product in products %}
             <div class="card align-items-center text-center">
                 <div class="card-body">
-                    <img class="card-img" src="{{product.photo.url}}" alt="Card image cap">
+                    <img class="card-img" src="{{product.photo.url}}" alt="{{product.name}}">
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.country}} 1 кг</p>
                     <p class="card-text">{{product.cost}} Р</p>

@@ -21,7 +21,7 @@
 
         <a href="/" class="navbar-brand text-decoration-none" style="margin-right:0;">
             <svg width="64px" height="64px" viewBox="0 0 100 100" class="looka-1j8o68f"
-                 id="image_footer">
+                 id="image_footer" >
                 <defs id="SvgjsDefs4396">
                     <linearGradient id="SvgjsLinearGradient4401">
                         <stop id="SvgjsStop4402" stop-color="#ef4136" offset="0"></stop>
@@ -85,20 +85,20 @@
                     {% if user.is_authenticated %}
                     <li class="header_effect">
                         <a href="{% url 'user:profile' %}" class="nav-link text-black align-items-center text-center">
-                            <img src="{% if user.image %}{{user.image.url}}{% else %}{% static 'main/img/anonymous.png' %}{% endif %}" class="d-block mx-auto icon_plus"/>
+                            <img src="{% if user.image %}{{user.image.url}}{% else %}{% static 'main/img/anonymous.png' %}{% endif %}" class="d-block mx-auto icon_plus" alt="Аватар пользователя"/>
                             {{user.username}}
                         </a>
                     </li>
                     <li class="header_effect">
                         <a href="{% url 'users:users-basket' %}" class="nav-link text-black">
-                            <img src="{% static 'main/img/cart_icon.png' %}" class="d-block mx-auto icon_plus"/>
+                            <img src="{% static 'main/img/cart_icon.png' %}" class="d-block mx-auto icon_plus" alt="Корзина"/>
                             Корзина
                         </a>
                     </li>
                     {% else %}
                         <li class="header_effect">
                         <a href="{% url 'user:login' %}" class="nav-link text-black align-items-center text-center">
-                            <img src="{% static 'main/img/user_icon.png' %}" class="d-block mx-auto icon_plus"/>
+                            <img src="{% static 'main/img/user_icon.png' %}" class="d-block mx-auto icon_plus" alt="Иконка войти"/>
                             Войти
                         </a>
                     </li>
@@ -158,11 +158,11 @@
             <h5>Социальные сети</h5>
             <div class="social-icons-footer text-center align-items-center mx-auto">
                 <a href="https://www.facebook.com/" class="social-icon">
-                    <img src="{% static 'main/img/fb.png' %}"/></a>
+                    <img src="{% static 'main/img/fb.png' %}" alt="Иконка фэйсбука"/></a>
                 <a href="https://vk.com/noobik_novi4ok" class="social-icon">
-                    <img src="{% static 'main/img/vk.png' %}"/></a>
+                    <img src="{% static 'main/img/vk.png' %}" alt="Иконка вконтакте"/></a>
                 <a href="https://web.telegram.org/a/" class="social-icon">
-                    <img src="{% static 'main/img/telegram.png' %}"/></a>
+                    <img src="{% static 'main/img/telegram.png' %}" alt="Иконка телеграма"/></a>
             </div>
         </div>
     </footer>

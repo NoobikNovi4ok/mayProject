@@ -19,23 +19,23 @@
             <div>
                 <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:end;left:45%;">Магазин открылся<br>Спешите приобрести фрукты</h2>
                 <a class="slider-button btn orange_without" style="cursor:default;left:85%;" id="buy_1" data-href="{% url 'catalog' %}">Купить</a>
-                <img src="{% static 'main/img/first_image_slider.png' %}" class="slider-img">
+                <img src="{% static 'main/img/first_image_slider.png' %}" class="slider-img" alt="Магазин открылся">
             </div>
             <div>
                 <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:start;left:65%">Зайти в аккаунт</h2>
                 <a class="slider-button btn orange_without" style="text-align:start;left:25%;cursor:default;" id="buy_2" data-href="{% url 'user:login' %}">Авторизоваться</a>
-                <img src="{% static 'main/img/second_image_slider.jpg' %}" class="slider-img">
+                <img src="{% static 'main/img/second_image_slider.jpg' %}" class="slider-img" alt="Авторизоваться">
             </div>
             <div>
                 <h2 class="slider-text col-lg-12 col-md-12 col-sm-12" style="text-align:end;left:45%;">Есть вопросы?</h2>
                 <a class="slider-button btn orange_without" style="cursor:default;left:85%;" id="buy_3" data-href="{% url 'contact' %}">Связаться</a>
-                <img src="{% static 'main/img/third_image_slider.jpg' %}" class="slider-img">
+                <img src="{% static 'main/img/third_image_slider.jpg' %}" class="slider-img" alt="Вопросы">
             </div>
             <div>
-                <img class="prev controlls slider-controlls" src="{% static 'main/img/prev_icon.png' %}">
+                <img class="prev controlls slider-controlls" src="{% static 'main/img/prev_icon.png' %}" alt="Перелистнуть влево">
             </div>
             <div>
-                <img class="next controlls slider-controlls" src="{% static 'main/img/next_icon.png' %}">
+                <img class="next controlls slider-controlls" src="{% static 'main/img/next_icon.png' %}" alt="Перелистнуть вправо">
             </div>
 
         </div>
@@ -45,7 +45,7 @@
             {% for product in products %}
             <div class="card align-items-center text-center">
                 <div class="card-body">
-                    <img class="card-img" src="{{product.photo.url}}" alt="Card image cap">
+                    <img class="card-img" src="{{product.photo.url}}" alt="{{product.name}}">
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.country}} 1 кг</p>
                     <p class="card-text">{{product.cost}} Р</p>
