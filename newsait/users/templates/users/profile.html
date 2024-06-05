@@ -30,11 +30,12 @@
                                                     <img src="{% if user.image %}{{user.image.url}}{% else %}{% static 'main/img/anonymous.png' %}{% endif %}"
                                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                                         style="max-width: 150px;">
-                                                    <input type="file" class="form-control mt-3" id="id_image" name="image"
-                                                        accept="image/*">
                                                 </div>
 
                                                 <div class="col-md-12 col-lg-12 mb-3">
+                                                    <label for="id_image" class="form-label">Аватар пользователя</label>
+                                                    <input type="file" class="form-control mt-1 mb-1" id="id_image" name="image"
+                                                        accept="image/*">
                                                     <label for="username" class="form-label">Имя пользователя*</label>
                                                     <input type="text" class="form-control" id="username" name="username"
                                                         placeholder="Введите имя пользователя" value="{{user.username}}" required>
